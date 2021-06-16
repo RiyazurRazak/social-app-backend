@@ -107,8 +107,7 @@ REST_FRAMEWORK = {
 
 DATABASES = {}
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
@@ -151,6 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
